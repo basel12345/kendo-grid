@@ -1,0 +1,22 @@
+<kendo-grid #Grid filterable="menu" [data]="gridData | async" [pageable]="true" [pageSize]="state.take"
+    [loading]="dataService.loading" [skip]="state.skip" [kendoGridReactiveEditing]="createFormGroup"
+    [trackBy]="trackByItem" (dataStateChange)="onStateChange($event)">
+    <kendo-grid-column filter="text" field="ProductName" title="Product Name"></kendo-grid-column>
+    <kendo-grid-column filter="text" field="UnitPrice" title="Price"></kendo-grid-column>
+    <kendo-grid-column filter="text" field="Discontinued" title="Discontinued"></kendo-grid-column>
+    <kendo-grid-column filter="text" field="UnitsInStock" title="Units In Stock"></kendo-grid-column>
+    <kendo-grid-command-column title="command" [width]="220">
+        <ng-template kendoGridCellTemplate let-isNew="isNew">
+            <button kendoGridEditCommand [primary]="true">Edit</button>
+            <button kendoGridRemoveCommand>Remove</button>
+            <ng-container *ngIf="!isNew">
+                <button kendoGridSaveCommand [disabled]="formGroup?.invalid || false">
+                    Update
+                </button>
+                <button kendoGridCancelCommand>
+                    Cancel
+                </button>
+            </ng-container>
+        </ng-template>
+    </kendo-grid-command-column>
+</kendo-grid>
