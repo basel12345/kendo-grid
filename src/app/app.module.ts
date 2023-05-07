@@ -7,9 +7,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { IGridComponent } from './Shared/components/igrid/igrid.component';
 import { GridModule } from '@progress/kendo-angular-grid';
 
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClient, HttpClientModule } from "@angular/common/http";
 import { ReactiveFormsModule } from '@angular/forms';
-
 
 @NgModule({
   declarations: [

@@ -1,10 +1,10 @@
-<kendo-grid #Grid filterable="menu" [data]="gridData | async" [pageable]="true" [pageSize]="state.take"
-    [loading]="dataService.loading" [skip]="state.skip" [kendoGridReactiveEditing]="createFormGroup"
-    [trackBy]="trackByItem" (dataStateChange)="onStateChange($event)">
-    <kendo-grid-column filter="text" field="ProductName" title="Product Name"></kendo-grid-column>
-    <kendo-grid-column filter="text" field="UnitPrice" title="Price"></kendo-grid-column>
-    <kendo-grid-column filter="text" field="Discontinued" title="Discontinued"></kendo-grid-column>
-    <kendo-grid-column filter="text" field="UnitsInStock" title="Units In Stock"></kendo-grid-column>
+<button (click)="DeleteRow()">Delete</button>
+<kendo-grid #Grid [filterable]="'menu'" [data]="GridData | async" [pageable]="true" 
+    [pageSize]="state.take" [loading]="DataService.loading" [skip]="state.skip" [selectable]="true"
+    [kendoGridReactiveEditing]="createFormGroup">
+    <ng-container *ngFor="let res of Columns">
+        <kendo-grid-column [filter]="res.type" [field]="res.name" [title]="res.name"></kendo-grid-column>
+    </ng-container>
     <kendo-grid-command-column title="command" [width]="220">
         <ng-template kendoGridCellTemplate let-isNew="isNew">
             <button kendoGridEditCommand [primary]="true">Edit</button>
