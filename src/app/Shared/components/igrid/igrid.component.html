@@ -1,14 +1,13 @@
 <button (click)="DeleteRow()">Delete</button>
-<kendo-grid #Grid [filterable]="'menu'" [data]="GridData | async" [pageable]="true" 
-    [pageSize]="state.take" [loading]="DataService.loading" [skip]="state.skip" [selectable]="true"
-    [kendoGridReactiveEditing]="createFormGroup">
+<kendo-grid #Grid [filterable]="'menu'" [data]="GridData | async" [pageable]="true" [pageSize]="state.take"
+    [loading]="DataService.loading" [skip]="state.skip" [selectable]="true" [kendoGridReactiveEditing]="createFormGroup"
+    (pageChange)="pageChange($event)">
     <ng-container *ngFor="let res of Columns">
         <kendo-grid-column [filter]="res.type" [field]="res.name" [title]="res.name"></kendo-grid-column>
     </ng-container>
     <kendo-grid-command-column title="command" [width]="220">
         <ng-template kendoGridCellTemplate let-isNew="isNew">
             <button kendoGridEditCommand [primary]="true">Edit</button>
-            <button kendoGridRemoveCommand>Remove</button>
             <ng-container *ngIf="!isNew">
                 <button kendoGridSaveCommand [disabled]="formGroup?.invalid || false">
                     Update

@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, Output, ViewChild, EventEmitter } from '@angular/core';
-import { CellClickEvent, CreateFormGroupArgs, GridComponent, GridDataResult, GridItem } from '@progress/kendo-angular-grid';
+import { CellClickEvent, CreateFormGroupArgs, GridComponent, GridDataResult, GridItem, PageChangeEvent } from '@progress/kendo-angular-grid';
 import { Observable, map } from 'rxjs';
 import { IGrid } from 'src/app/interfaces/IGird.interface';
 import { State, process } from "@progress/kendo-data-query";
@@ -29,7 +29,7 @@ export class IGridComponent implements IGrid<GridDataResult>, OnInit, AfterViewI
 
 	ngOnInit(): void {
 		this.GetGridData();
-		this.DataService.read();
+		this.DataService.read(this.state.skip);
 		this.createFormGroup = this.createFormGroup.bind(this);
 	}
 
@@ -51,6 +51,11 @@ export class IGridComponent implements IGrid<GridDataResult>, OnInit, AfterViewI
 				return process(Array.isArray(data) ? data : [data], this.state)
 			}),
 		);
+	}
+
+	public pageChange(event: PageChangeEvent): void {
+		this.state.skip = event.skip;
+		this.DataService.read(this.state.skip);
 	}
 
 	public trackByItem(index: number, item: GridItem): any {
@@ -76,11 +81,12 @@ export class IGridComponent implements IGrid<GridDataResult>, OnInit, AfterViewI
 	}
 
 	Cancel() {
-		this.DataService.read();
+		this.DataService.read(this.state.skip);
 		this.Mygrid.cancelCell();
 	}
 
 	Save() {
+		this.BeforeAction();
 		if (isNaN(this.rowIndex)) {
 			// Save Create
 			if (this.formGroup.valid) {

@@ -9,30 +9,23 @@ import { Validators } from '@angular/forms';
 })
 export class AppComponent {
 	columns = [
-		{ name: "ProductID", type: "numeric" },
-		{ name: "ProductName", type: "text" },
-		{ name: "UnitPrice", type: "numeric" },
-		{ name: "Discontinued", type: "checkbox" },
-		{ name: "UnitsInStock", type: "numeric" }
+		{ name: "CategoryId", type: "numeric" },
+		{ name: "Description", type: "text" },
+		{ name: "ArabicDescription", type: "text" },
+		{ name: "SalesTypeID", type: "text" }
 	]
 	form = {
-		ProductID: "",
-		ProductName: ["", Validators.required],
-		UnitPrice: "",
-		UnitsInStock: [
-			"",
-			Validators.compose([
-				Validators.required,
-				Validators.pattern("^[0-9]{1,3}"),
-			]),
-		],
-		Discontinued: ""
+		CategoryId: "",
+		Description: ["", Validators.required],
+		ArabicDescription: "",
+		SalesTypeID: ""
 	}
 	dataItem: any;
 	constructor(public dataService: DatasService) { }
 	title = 'kendo-grid';
-
+// this.grid.BeforeAction=>(i,d,u){  }
 	getRowGrid(event: any) {
 		this.dataItem = event.dataItem;
 	}
+	
 }
