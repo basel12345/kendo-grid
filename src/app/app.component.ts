@@ -1,3 +1,4 @@
+import { IColumns } from './interfaces/IColumns.interface';
 import { Component } from '@angular/core';
 import { DatasService } from './Shared/services/data.service';
 import { Validators } from '@angular/forms';
@@ -8,31 +9,27 @@ import { Validators } from '@angular/forms';
 	styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-	columns = [
-		{ name: "ProductID", type: "numeric" },
-		{ name: "ProductName", type: "text" },
-		{ name: "UnitPrice", type: "numeric" },
-		{ name: "Discontinued", type: "checkbox" },
-		{ name: "UnitsInStock", type: "numeric" }
-	]
-	form = {
-		ProductID: "",
-		ProductName: ["", Validators.required],
-		UnitPrice: "",
-		UnitsInStock: [
-			"",
-			Validators.compose([
+	columns: IColumns[] = [
+		{ name: "ProductID", type: "numeric", Validators: null, disabled: false },
+		{ name: "ProductName", type: "text", Validators: Validators.required, disabled: false },
+		{ name: "UnitPrice", type: "numeric", Validators: null, disabled: false },
+		{ name: "Discontinued", type: "text", Validators: null, disabled: false },
+		{
+			name: "UnitsInStock", type: "numeric", Validators: Validators.compose([
 				Validators.required,
 				Validators.pattern("^[0-9]{1,3}"),
-			]),
-		],
-		Discontinued: ""
-	}
+			]), disabled: false
+		}
+	];
 	dataItem: any;
 	constructor(public dataService: DatasService) { }
 	title = 'kendo-grid';
 
 	getRowGrid(event: any) {
 		this.dataItem = event.dataItem;
+	}
+
+	beforeAction() {
+		
 	}
 }

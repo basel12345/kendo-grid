@@ -6,6 +6,7 @@ import { State, process } from "@progress/kendo-data-query";
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Product } from 'src/app/class/product';
 import { AfterViewInit } from '@angular/core';
+import { IColumns } from 'src/app/interfaces/IColumns.interface';
 
 @Component({
 	selector: 'app-igrid',
@@ -14,9 +15,10 @@ import { AfterViewInit } from '@angular/core';
 })
 export class IGridComponent implements IGrid<GridDataResult>, OnInit, AfterViewInit {
 	@Input() public DataService: any;
-	@Input() Columns: any;
-	@Input() form: any;
+	@Input() Columns!: IColumns[];
+	@Input() BeforeAction!: () => void;
 	@Output() CellClick = new EventEmitter<CellClickEvent>();
+	form: any = {};
 	@ViewChild("Grid") Mygrid!: GridComponent;
 	formGroup!: FormGroup;
 	GridData!: Observable<GridDataResult>;
@@ -35,9 +37,10 @@ export class IGridComponent implements IGrid<GridDataResult>, OnInit, AfterViewI
 
 	ngAfterViewInit() {
 		this.SelectedRowChanged();
+		this.Columns.forEach(res => this.form[res.name] = [{ value: "", disabled: res.disabled }, res.Validators]);
 	}
 
-	public createFormGroup(args: CreateFormGroupArgs | any): FormGroup {
+	createFormGroup(args: CreateFormGroupArgs | any): FormGroup {
 		this.rowIndex = args.rowIndex;
 		const item = !isNaN(args.rowIndex) ? args.dataItem : new Product();
 		this.formGroup = this.formBuilder.group(this.form);
@@ -62,10 +65,6 @@ export class IGridComponent implements IGrid<GridDataResult>, OnInit, AfterViewI
 			this.dataItem = res?.['dataItem'];
 			this.CellClick.emit(res);
 		});
-	}
-
-	BeforeAction() {
-		console.log(this.formGroup.value);
 	}
 
 	AddRow() {
