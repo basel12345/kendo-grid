@@ -1,7 +1,13 @@
 import { ValidatorFn } from '@angular/forms';
+import { DataType } from '../emuns/DataType';
 export interface IColumns {
-    name: string,
-    type: "boolean" | "text" | "numeric" | "date",
     Validators: ValidatorFn | null,
-    disabled: boolean
+    Name: string,
+    DisplayName: string,
+    DataType: DataType,
+    IsEditable: boolean,
+    IsFilterable: boolean,
+    DefaultValue: string | null,
+    controlType: any,
+    viewCellStyle: string
 }

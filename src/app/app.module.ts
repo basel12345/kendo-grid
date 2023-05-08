@@ -7,8 +7,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { IGridComponent } from './Shared/components/igrid/igrid.component';
 import { GridModule } from '@progress/kendo-angular-grid';
 
-import { HttpClient, HttpClientModule } from "@angular/common/http";
+import { HttpClientModule } from "@angular/common/http";
 import { ReactiveFormsModule } from '@angular/forms';
+import { PagerModule } from '@progress/kendo-angular-pager';
+import { FilterModule } from '@progress/kendo-angular-filter';
+
+
 
 @NgModule({
   declarations: [
@@ -21,7 +25,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     BrowserAnimationsModule,
     GridModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    PagerModule,
+    FilterModule
   ],
   providers: [],
   bootstrap: [AppComponent]

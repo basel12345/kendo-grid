@@ -1467,6 +1467,14 @@
     "@progress/kendo-ooxml" "^1.6.1"
     "tslib" "^2.3.1"
 
+"@progress/kendo-angular-filter@^12.0.0":
+  "integrity" "sha512-xVkhtejEyHMXp+RMMcgPRyIyEpla6bYJW3UtAqHJ+oEd0zk+P042zRs7PKgJZo4WOgGDTEqMK/iumxOTXTfDfw=="
+  "resolved" "https://registry.npmjs.org/@progress/kendo-angular-filter/-/kendo-angular-filter-12.0.0.tgz"
+  "version" "12.0.0"
+  dependencies:
+    "@progress/kendo-angular-schematics" "12.0.0"
+    "tslib" "^2.3.1"
+
 "@progress/kendo-angular-grid@^12.0.0":
   "integrity" "sha512-3rM52MedCfcuZQ6eoXhP7caS55VlyEqciotXaE3YeVZ/dw8vuJS4WwR5IEB10UUAFaMUfA+DX64UjVItfOadsQ=="
   "resolved" "https://registry.npmjs.org/@progress/kendo-angular-grid/-/kendo-angular-grid-12.0.0.tgz"
@@ -1524,6 +1532,14 @@
 "@progress/kendo-angular-navigation@12.0.0":
   "integrity" "sha512-bxNhLSGPqWjXPpS1qEPaeLZMiKHDFx2HhWy39/1gn23ekJq3aObZCkqOqOT+LytkSCbFrknUoIyY5/ipcxLvcQ=="
   "resolved" "https://registry.npmjs.org/@progress/kendo-angular-navigation/-/kendo-angular-navigation-12.0.0.tgz"
+  "version" "12.0.0"
+  dependencies:
+    "@progress/kendo-angular-schematics" "12.0.0"
+    "tslib" "^2.3.1"
+
+"@progress/kendo-angular-pager@^12.0.0":
+  "integrity" "sha512-7AJ+ZribZawTzKuoPXi7+rEGaybStkz6Bb1Q/GKfBJlldeNtFhqg5WhJCmWxrOgAVdJ9yQZd68Y11nFi3a62qg=="
+  "resolved" "https://registry.npmjs.org/@progress/kendo-angular-pager/-/kendo-angular-pager-12.0.0.tgz"
   "version" "12.0.0"
   dependencies:
     "@progress/kendo-angular-schematics" "12.0.0"
@@ -1596,7 +1612,7 @@
   dependencies:
     "tslib" "^1.7.0"
 
-"@progress/kendo-data-query@^1.0.0":
+"@progress/kendo-data-query@^1.0.0", "@progress/kendo-data-query@^1.5.5":
   "integrity" "sha512-oCPDk94cuhp+NskdjBlKH3/rW2fBmQo+tVYqe3CDcuoefc35d1whYgjo5OWV1ZxPCQ8R1u3PdLgoLYLhaze0lA=="
   "resolved" "https://registry.npmjs.org/@progress/kendo-data-query/-/kendo-data-query-1.6.0.tgz"
   "version" "1.6.0"
@@ -1622,7 +1638,7 @@
   "resolved" "https://registry.npmjs.org/@progress/kendo-draggable/-/kendo-draggable-3.0.2.tgz"
   "version" "3.0.2"
 
-"@progress/kendo-drawing@^1.17.0", "@progress/kendo-drawing@^1.17.2":
+"@progress/kendo-drawing@^1.16.0", "@progress/kendo-drawing@^1.17.0", "@progress/kendo-drawing@^1.17.2":
   "integrity" "sha512-aG71C3KiJWf7DP5c4B/UwrjbYbsYoeXe+WqR1XhEDyaLHa38xki8utqVrJ3+c3t1mlEtGTW8uz46bJ89N1sLag=="
   "resolved" "https://registry.npmjs.org/@progress/kendo-drawing/-/kendo-drawing-1.17.5.tgz"
   "version" "1.17.5"
@@ -5992,6 +6008,11 @@
   "integrity" "sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w=="
   "resolved" "https://registry.npmjs.org/supports-preserve-symlinks-flag/-/supports-preserve-symlinks-flag-1.0.0.tgz"
   "version" "1.0.0"
+
+"sweetalert2@^11.7.5":
+  "integrity" "sha512-RBPKdK8Uf9/bz9r4vy7x6sGqf0MioSXt1po1lAwwcl3AwbjHVTc5S0yud4ZJKU1EhvJFVDrFoqIpHwWERwZJEA=="
+  "resolved" "https://registry.npmjs.org/sweetalert2/-/sweetalert2-11.7.5.tgz"
+  "version" "11.7.5"
 
 "symbol-observable@4.0.0":
   "integrity" "sha512-b19dMThMV4HVFynSAM1++gBHAbk2Tc/osgLIBZMKsyqh34jb2e8Os7T6ZW/Bt3pJFdBTd2JwAnAAEQV7rSNvcQ=="
