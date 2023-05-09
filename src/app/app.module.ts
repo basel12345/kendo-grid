@@ -11,6 +11,11 @@ import { HttpClientModule } from "@angular/common/http";
 import { ReactiveFormsModule } from '@angular/forms';
 import { PagerModule } from '@progress/kendo-angular-pager';
 import { FilterModule } from '@progress/kendo-angular-filter';
+import { AlertModule } from '@full-fledged/alerts';
+import { ButtonModule } from '@progress/kendo-angular-buttons';
+import { BiNavComponent } from './Shared/components/BI-Nav/bi-nav.component';
+import { IDataService } from './interfaces/IDataService';
+import { DatasService } from './Shared/services/data.service';
 
 
 
@@ -18,6 +23,7 @@ import { FilterModule } from '@progress/kendo-angular-filter';
   declarations: [
     AppComponent,
     IGridComponent,
+    BiNavComponent
   ],
   imports: [
     BrowserModule,
@@ -27,9 +33,16 @@ import { FilterModule } from '@progress/kendo-angular-filter';
     HttpClientModule,
     ReactiveFormsModule,
     PagerModule,
-    FilterModule
+    FilterModule,
+    AlertModule.forRoot({maxMessages: 5, timeout: 5000, positionY: "top"}),
+    ButtonModule
   ],
-  providers: [],
+  providers: [
+    {
+			provide: IDataService,
+			useClass: DatasService
+		}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

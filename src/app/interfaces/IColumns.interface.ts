@@ -9,5 +9,6 @@ export interface IColumns {
     IsFilterable: boolean,
     DefaultValue: string | null,
     controlType: any,
-    viewCellStyle: string
+    viewCellStyle: string,
+    IsVisible: boolean
 }

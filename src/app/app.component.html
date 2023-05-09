@@ -1,1 +1,4 @@
-<app-igrid [DataService]="dataService" [Columns]="columns" (CellClick)="getRowGrid($event)"></app-igrid>
+<BI-Nav [BIGrid]="BIGrid"></BI-Nav>
+<app-igrid [Key]="'CategoryId'" [DataService]="dataService" [Columns]="columns" (CellClick)="getRowGrid($event)"></app-igrid>
+<ff-alerts></ff-alerts>
+

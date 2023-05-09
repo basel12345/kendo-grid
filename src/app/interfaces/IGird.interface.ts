@@ -1,13 +1,12 @@
 import { Observable } from "rxjs";
 
-export interface IGrid<T> {
+export interface IGrid {
     DataService: any,
-    GridData: Observable<T>,
+    GridData: Observable<any>,
     Columns: Object,
+    Key: string,
     SelectedRowChanged: () => void;
-    GetGridData: () => void;
     BeforeAction: () => void;
-    
     AddRow: () => void;
     DeleteRow: () => void;
     Cancel: () => void;
