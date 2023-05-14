@@ -5,6 +5,7 @@ import { DataType } from './emuns/DataType';
 import { IGridComponent } from './Shared/components/igrid/igrid.component';
 import { IDataService } from './interfaces/IDataService';
 import { IGrid } from './interfaces/IGird.interface';
+import { BIPrimeGridComponent } from './Shared/components/Prime/bi-prime-grid/bi-prime-grid.component';
 
 @Component({
 	selector: 'app-root',
@@ -20,13 +21,13 @@ export class AppComponent {
 		{ DisplayName: "rowguid", Name: "rowguid", DataType: DataType.Text, Validators: null, IsEditable: true, IsFilterable: true, DefaultValue: null, controlType: "", viewCellStyle: "", IsVisible: false }
 	]
 	dataItem: any;
-	@ViewChild(IGridComponent) BIGrid!:IGrid;
+	@ViewChild(BIPrimeGridComponent) BIGrid!:IGrid;
 	constructor(public dataService: IDataService) {
 		console.log(this.dataService);
 		
 	}
 	ngAfterViewInit() {
-		this.BIGrid.BeforeAction = () => { }
+		// this.BIGrid.BeforeAction = () => { }
 	}
 	title = 'kendo-grid';
 	getRowGrid(event: any) {

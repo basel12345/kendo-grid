@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, Output, ViewChild, EventEmitter } from '@angular/core';
-import { CellClickEvent, CreateFormGroupArgs, GridComponent, GridDataResult, GridItem, PageChangeEvent } from '@progress/kendo-angular-grid';
+import { CellClickEvent, CreateFormGroupArgs, GridComponent, GridItem, PageChangeEvent } from '@progress/kendo-angular-grid';
 import { Observable } from 'rxjs';
 import { IGrid } from 'src/app/interfaces/IGird.interface';
 import { State, toODataString } from "@progress/kendo-data-query";

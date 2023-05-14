@@ -16,8 +16,7 @@ import { ButtonModule } from '@progress/kendo-angular-buttons';
 import { BiNavComponent } from './Shared/components/BI-Nav/bi-nav.component';
 import { IDataService } from './interfaces/IDataService';
 import { DatasService } from './Shared/services/data.service';
-
-
+import { PrimeMdule } from './Shared/components/Prime/prime.module';
 
 @NgModule({
   declarations: [
@@ -34,14 +33,15 @@ import { DatasService } from './Shared/services/data.service';
     ReactiveFormsModule,
     PagerModule,
     FilterModule,
-    AlertModule.forRoot({maxMessages: 5, timeout: 5000, positionY: "top"}),
+    AlertModule.forRoot({ maxMessages: 5, timeout: 5000, positionY: "top" }),
+    PrimeMdule,
     ButtonModule
   ],
   providers: [
     {
-			provide: IDataService,
-			useClass: DatasService
-		}
+      provide: IDataService,
+      useClass: DatasService
+    }
   ],
   bootstrap: [AppComponent]
 })

@@ -5,7 +5,7 @@ export interface IGrid {
     GridData: Observable<any>,
     Columns: Object,
     Key: string,
-    SelectedRowChanged: () => void;
+    SelectedRowChanged: (index?: number, dataItem?: any) => void;
     BeforeAction: () => void;
     AddRow: () => void;
     DeleteRow: () => void;
